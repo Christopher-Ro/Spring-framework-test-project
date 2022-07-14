@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spring test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Thymleaf frontend</h1>
+        <img src="https://www.thymeleaf.org/images/thymeleaf.png" alt="thymleaf logo" width="70px">
+    </header>
+    <main>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Year</th>
+            </tr>
+            <tr th:each="thing: ${things}">
+                <td th:text="${thing.getId()}"></td>
+                <td th:text="${thing.getTitle()}"></td>
+                <td th:text="${thing.getYear()}"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>User id</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+            <tr th:each="todo: ${todos}">
+                <td th:text="${todo.getId()}"></td>
+                <td th:text="${todo.getUserId()}"></td>
+                <td th:text="${todo.getTitle()}"></td>
+                <td th:text="${todo.isCompleted()}"></td>
+            </tr>
+        </table>
+    </main>
+    <footer>
+        <h2>
+            Copyright (c)
+        </h2>
+        <img src="https://cdn.sigma.software/wp-content/themes/ems3/build/project/images/sigma-software-logo-small.svg" alt="sigma logo">
+        <h2>
+            Sigma student (Me)
+        </h2>
+    </footer>
+</body>
+
+</html>

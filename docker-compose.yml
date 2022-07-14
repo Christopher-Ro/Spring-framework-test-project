@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  web:
+    image: allrest:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    depends_on:
+       - db
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - thing-data:/var/lib/mysql
+volumes:
+  thing-data:
